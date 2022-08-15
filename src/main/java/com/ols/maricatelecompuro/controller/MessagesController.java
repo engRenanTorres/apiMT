@@ -1,14 +1,7 @@
 package com.ols.maricatelecompuro.controller;
 
 
-import com.ols.maricatelecompuro.controller.dto.AlunoDto;
-import com.ols.maricatelecompuro.model.Aluno;
-import com.ols.maricatelecompuro.model.Message;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
-import java.util.List;
 
 @RestController
 public class MessagesController {

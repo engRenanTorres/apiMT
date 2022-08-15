@@ -2,19 +2,24 @@ package com.ols.maricatelecompuro.controller.form;
 
 import com.ols.maricatelecompuro.model.Aluno;
 import com.ols.maricatelecompuro.model.Escola;
-import com.ols.maricatelecompuro.repository.AlunoRepository;
 import com.ols.maricatelecompuro.repository.EscolaRepository;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AlunoForm {
-  private String nome;
-  private int status;
+  @NotNull @NotEmpty @Length(max = 100)
+  private String nomeAluno;
+  @Max(1)
+  private Integer status;
 
-  @Nullable
   private String serie;
-  @Nullable
+
   private String mensagem;
   @ManyToOne
   @Nullable
@@ -24,16 +29,16 @@ public class AlunoForm {
   }
 
   public Aluno converter(EscolaRepository escolaRepository) {
-    Escola escola = escolaRepository.findByNome(nomeEscola);
-    return new Aluno(nome,status,serie,mensagem,escola);
+    Escola escola = escolaRepository.findByNomeEscola(nomeEscola);
+    return new Aluno(nomeAluno,status,serie,mensagem,escola);
   }
 
-  public String getNome() {
-    return nome;
+  public String getNomeAluno() {
+    return nomeAluno;
   }
 
-  public void setNome(String nome) {
-    this.nome = nome;
+  public void setNomeAluno(String nomeAluno) {
+    this.nomeAluno = nomeAluno;
   }
 
   public int getStatus() {

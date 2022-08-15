@@ -1,9 +1,8 @@
 package com.ols.maricatelecompuro.controller;
 
-import com.ols.maricatelecompuro.controller.dto.AlunoDto;
+import com.ols.maricatelecompuro.model.dto.AlunoDto;
 import com.ols.maricatelecompuro.controller.form.AlunoForm;
 import com.ols.maricatelecompuro.model.Aluno;
-import com.ols.maricatelecompuro.model.Escola;
 import com.ols.maricatelecompuro.repository.AlunoRepository;
 import com.ols.maricatelecompuro.repository.EscolaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -22,6 +22,7 @@ public class UsuarioController {
 
   @Autowired
   private AlunoRepository alunoRepository;
+  @Autowired
   private EscolaRepository escolaRepository;
 
   @GetMapping ("/apiTodosUsuarios")
@@ -66,7 +67,7 @@ public class UsuarioController {
   }
 
   @PostMapping("/apiUsuario")
-  public ResponseEntity<AlunoDto> activeUser(@RequestBody AlunoForm alunoForm, UriComponentsBuilder uriBuilder) {
+  public ResponseEntity<AlunoDto> activeUser(@RequestBody @Valid AlunoForm alunoForm, UriComponentsBuilder uriBuilder) {
     Aluno alunoPost = alunoForm.converter(escolaRepository);
     alunoRepository.save(alunoPost);
     URI uri = uriBuilder.path("/apiUsuario/{id}").buildAndExpand(alunoPost.getId()).toUri();

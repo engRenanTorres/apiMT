@@ -3,6 +3,7 @@ package com.ols.maricatelecompuro.model;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class Aluno {
@@ -10,14 +11,13 @@ public class Aluno {
   private int id;
 
   private String nomeAluno;
-  @Nullable
+
   private String serie;
-  @Nullable
+
   private String mensagem;
-  @ManyToOne @Nullable
+  @ManyToOne
   private Escola escola;
-  @Nullable
-  private int status;
+  private Integer status;
 /*
   @Nullable
   private int matricula_aluno;

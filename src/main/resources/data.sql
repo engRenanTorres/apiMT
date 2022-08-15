@@ -1,5 +1,5 @@
-INSERT INTO ALUNO(nome_aluno,serie,mensagem) VALUES ('Renan','7º','olá');
-INSERT INTO ALUNO(nome_aluno,serie,mensagem) VALUES ('ARTHUR','8º','olá2');
+INSERT INTO ALUNO(nome_aluno,serie,mensagem,status) VALUES ('Renan','7º','olá',1);
+INSERT INTO ALUNO(nome_aluno,serie,mensagem,status) VALUES ('ARTHUR','8º','olá2',1);
 
 
 INSERT INTO ESCOLA(nome_escola) VALUES('Alquimia');

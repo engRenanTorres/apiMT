@@ -1,4 +1,4 @@
-package com.ols.maricatelecompuro.controller.dto;
+package com.ols.maricatelecompuro.model.dto;
 
 import com.ols.maricatelecompuro.model.Aluno;
 
