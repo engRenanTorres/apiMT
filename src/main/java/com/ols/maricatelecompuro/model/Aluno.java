@@ -53,6 +53,26 @@ public class Aluno {
     this.escola = escola;
   }
 
+  public void setNomeAluno(String nomeAluno) {
+    this.nomeAluno = nomeAluno;
+  }
+
+  public void setSerie(String serie) {
+    this.serie = serie;
+  }
+
+  public void setMensagem(String mensagem) {
+    this.mensagem = mensagem;
+  }
+
+  public void setEscola(Escola escola) {
+    this.escola = escola;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
   @Nullable
   public Escola getEscola() {
     return escola;
